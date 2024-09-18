@@ -53,3 +53,153 @@ body {
     text-decoration: line-through;
     opacity: 0.6;
 }
+@media (max-width: 600px) {
+    #app {
+        width: 90%;
+    }
+    
+    #task-input {
+        width: 70%;
+    }
+}
+#dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #555;
+}
+
+
+body {
+    position: relative;
+}
+body.dark-mode #dark-mode-toggle {
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark-mode #dark-mode-toggle:hover {
+    background-color: #ddd;
+}
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Style the app container */
+body.dark-mode #app {
+    background-color: #333;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Style task items in dark mode */
+body.dark-mode .task-item {
+    background-color: #444;
+    color: #e0e0e0;
+}
+
+/* Style progress bar in dark mode */
+body.dark-mode #progress-bar {
+    background-color: #555;
+}
+
+body.dark-mode #progress-inner {
+    background-color: #76ff03; 
+}
+
+/* Style form elements in dark mode */
+body.dark-mode #task-input,
+body.dark-mode #add-task {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #888;
+}
+/* Style for task buttons: complete, edit, remove */
+.complete-task, .edit-task, .remove-task {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* Specific colors for each button type */
+.complete-task {
+    background-color: #28a745; 
+    color: white;
+}
+
+.edit-task {
+    background-color: #ffc107; 
+    color: white;
+}
+
+.remove-task {
+    background-color: #dc3545; 
+    color: white;
+}
+
+.complete-task:hover, .edit-task:hover, .remove-task:hover {
+    opacity: 0.8;
+}
+
+
+.task-item {
+    padding: 10px;
+    margin: 5px 0;
+    background: #f8f8f8;
+    display: flex;               
+    justify-content: space-between; /* Align buttons to the right */
+    align-items: center;          /* Vertically center content */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.task-item.complete {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Progress bar styles */
+#progress-container {
+    margin-top: 20px;
+}
+
+#progress-bar {
+    background-color: #ddd;
+    height: 10px;
+    border-radius: 5px;
+}
+
+#progress-inner {
+    background-color: green;
+    height: 10px;
+    width: 0%; 
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    #task-input {
+        width: 60%;
+    }
+    .task-item {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    .complete-task, .edit-task, .remove-task {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
