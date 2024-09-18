@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div id="app">
+        <button id="dark-mode-toggle">Toggle Dark Mode</button>
         <h1>Task Manager</h1>
         <div id="task-form">
             <input type="text" id="task-input" placeholder="Enter a task">
@@ -15,7 +17,15 @@
         </div>
         <ul id="task-list"></ul>
         <div id="quote"></div>
+        <div id="progress-container">
+            <p>Progress: <span id="progress">0%</span></p>
+            <div id="progress-bar" style="background: #ddd; height: 10px;">
+                <div id="progress-inner" style="background: green; height: 10px; width: 0%;"></div>
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
+
+
 </html>
