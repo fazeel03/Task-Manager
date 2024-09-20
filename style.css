@@ -40,23 +40,56 @@ body {
     margin-top: 20px;
 }
 
+/* Task item styles */
 .task-item {
     padding: 10px;
     margin: 5px 0;
     background: #f8f8f8;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between task text and buttons */
+    align-items: center;            /* Vertically center the content */
     border: 1px solid #ddd;
+    border-radius: 4px;
+    word-break: break-word;         /* Break long words */
+    gap: 10px;                      /* Add gap between text and buttons */
 }
+
+/* Flexbox container for buttons */
+.task-item > div {
+    display: flex;
+    gap: 5px;                       /* Add gap between buttons */
+}
+
+/* Make sure buttons do not shrink */
+.complete-task, .edit-task, .remove-task {
+    white-space: nowrap;            /* Prevent buttons from stretching */
+    flex-shrink: 0;                 /* Ensure buttons maintain their size */
+}
+
+/* Handle long task texts without pushing buttons */
+.task-text {
+    flex: 1;                        /* Task text takes remaining space */
+    padding-right: 10px;            /* Space between text and buttons */
+    overflow-wrap: break-word;      /* Break long words when needed */
+}
+
 
 .task-item.complete {
     text-decoration: line-through;
     opacity: 0.6;
 }
 @media (max-width: 600px) {
-    #app {
-        width: 90%;
+    .task-item {
+        flex-direction: column; /* Stack buttons below task text */
+        align-items: flex-start;
     }
+
+    .complete-task, .edit-task, .remove-task {
+        width: 100%;          /* Full width for buttons on small screens */
+        margin-top: 5px;       /* Spacing between stacked buttons */
+    }
+}
+
     
     #task-input {
         width: 70%;
@@ -79,7 +112,7 @@ body {
     background-color: #555;
 }
 
-
+/* Make sure the body has relative positioning so absolute works */
 body {
     position: relative;
 }
@@ -115,7 +148,7 @@ body.dark-mode #progress-bar {
 }
 
 body.dark-mode #progress-inner {
-    background-color: #76ff03; 
+    background-color: #76ff03; /* A bright green color for progress */
 }
 
 /* Style form elements in dark mode */
@@ -137,17 +170,17 @@ body.dark-mode #add-task {
 
 /* Specific colors for each button type */
 .complete-task {
-    background-color: #28a745; 
+    background-color: #28a745; /* Green for complete */
     color: white;
 }
 
 .edit-task {
-    background-color: #ffc107; 
+    background-color: #ffc107; /* Orange for edit */
     color: white;
 }
 
 .remove-task {
-    background-color: #dc3545; 
+    background-color: #dc3545; /* Red for remove */
     color: white;
 }
 
@@ -155,12 +188,12 @@ body.dark-mode #add-task {
     opacity: 0.8;
 }
 
-
+/* Task item styles */
 .task-item {
     padding: 10px;
     margin: 5px 0;
     background: #f8f8f8;
-    display: flex;               
+    display: flex;               /* Flex layout for items */
     justify-content: space-between; /* Align buttons to the right */
     align-items: center;          /* Vertically center content */
     border: 1px solid #ddd;
@@ -186,7 +219,7 @@ body.dark-mode #add-task {
 #progress-inner {
     background-color: green;
     height: 10px;
-    width: 0%; 
+    width: 0%; /* Width changes dynamically with JS */
 }
 
 /* Responsive design */
@@ -195,7 +228,7 @@ body.dark-mode #add-task {
         width: 60%;
     }
     .task-item {
-        flex-direction: column; 
+        flex-direction: column; /* Stack buttons below task text */
         align-items: flex-start;
     }
     .complete-task, .edit-task, .remove-task {
