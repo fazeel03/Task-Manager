@@ -24,31 +24,31 @@ function addTask() {
     `;
     taskList.appendChild(li);
 
-    taskInput.value = ''; 
-    updateProgress(); 
+    taskInput.value = ''; // Clear input field
+    updateProgress(); // Update progress after adding task
 }
 
 // Function to remove task
 function removeTask(btn) {
     btn.parentElement.parentElement.remove();
-    updateProgress(); 
+    updateProgress(); // Update progress after removing a task
 }
 
 // Function to mark task as complete
 function completeTask(btn) {
     const taskItem = btn.parentElement.parentElement;
-    taskItem.classList.toggle('complete'); 
-    updateProgress(); 
+    taskItem.classList.toggle('complete'); // Toggle the "complete" class
+    updateProgress(); // Update progress after completing a task
 }
 
 // Function to edit a task
 function editTask(btn) {
-    const taskItem = btn.parentElement.parentElement; 
-    const taskText = taskItem.querySelector('.task-text'); 
+    const taskItem = btn.parentElement.parentElement; // Get the task item
+    const taskText = taskItem.querySelector('.task-text'); // Get the task text
 
     const newTaskText = prompt('Edit task:', taskText.textContent);
     if (newTaskText) {
-        taskText.textContent = newTaskText; 
+        taskText.textContent = newTaskText; // Update the task text
     }
 }
 
@@ -62,7 +62,7 @@ function updateProgress() {
     document.getElementById('progress-inner').style.width = `${progressPercent}%`;
 }
 
-
+// Load tasks from local storage (if you have storage logic)
 function loadTasks() {
     const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
     savedTasks.forEach(task => {
@@ -78,7 +78,7 @@ function loadTasks() {
         `;
         taskList.appendChild(li);
     });
-    updateProgress(); 
+    updateProgress(); // Update progress after loading tasks
 }
 
 window.onload = loadTasks;
@@ -113,4 +113,3 @@ function fetchQuote() {
 window.onload = function() {
     fetchQuote();
 };
-
